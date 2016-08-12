@@ -5,53 +5,30 @@
 #*                                                    +:+ +:+         +:+     *#
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
-#*   Created: 2016/08/12 19:31:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/12 22:25:06 by                  ###   ########.fr       *#
+#*   Created: 2016/08/12 22:00:40 by                   #+#    #+#             *#
+#*   Updated: 2016/08/12 22:26:59 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
+LIBFTPRINTF =	../libftprintf.a
 
+all: $(LIBFTPRINTF)
+	gcc maintest.c ../libftprintf.a
 
-FILES		= ft_printf.c
-
-SRC			= $(addprefix srcs/, $(FILES))
-
-OBJS		= $(FILES:.c=.o)
-
-GCC		= gcc
-
-NAME	= libftprintf.a
-
-LIBFT	= libft/libft.a
-
-FLAGS	= #-Wextra -Werror -Wall
-
-RM		= rm -f
-
-all: $(NAME)
-
-$(NAME): $(LIBFT) $(OBJS)
-	cp $(LIBFT) $(NAME)
-	ar r $(NAME) $(OBJS)
-	ranlib $(NAME)
-
-$(OBJS):
-	$(GCC) $(FLAGS) -c $(SRC)
-
-$(LIBFT):
-	make -C libft/
+$(LIBFTPRINTF):
+	make -C ../
 
 clean:
-	$(RM) $(OBJS)
-	make clean -C libft/
+	make clean -C ../
 
-fclean: clean
-	$(RM) $(NAME) $(LIBFT)
-
+fclean:
+	make fclean -C ../
+	rm -f a.out
 
 re: fclean all
 
-rmr:
-	$(RM) $(NAME) $(OBJS)
-
-r: rmr all
+r:
+	make r -C ../
+	@make
+	@echo "---------------------------------------------"
+	./a.out

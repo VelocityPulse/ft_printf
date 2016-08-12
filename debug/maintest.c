@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   maintest.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/12 22:21:30 by                  ###   ########.fr       */
+/*   Created: 2016/08/12 21:58:22 by                   #+#    #+#             */
+/*   Updated: 2016/08/12 22:33:44 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
 
-# include "debug.h"
-
-# include <stdarg.h>
-# include "../libft/libft.h"
-
-int		ft_printf(const char *format, ...);
-
-#endif
+int main()
+{
+	ft_printf("lol $$ lol\n");
+	return (0);
+}
