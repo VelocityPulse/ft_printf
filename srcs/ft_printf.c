@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/12 19:45:38 by                  ###   ########.fr       */
+/*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/08/12 19:46:17 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
 
-#include "../libft/libft.h"
-
-int		ft_printf(const char *format, ...);
-
-#endif
+int		ft_printf(const char *format, ...)
+{
+	ft_putendl("DONE");
+	return (0);
+}
