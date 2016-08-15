@@ -6,62 +6,80 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/15 02:47:47 by                  ###   ########.fr       */
+/*   Updated: 2016/08/15 21:27:48 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-
-
-void	ft_init_data(t_data *data)
+void	init_fct_conv(t_data *data)
 {
-//	data->fct[CONV_LO_S] = 
-/*	data->fct[CONV_LO_D] = 
-	data->fct[CONV_LO_U] = 
-	data->fct[CONV_UP_U] = 
-	data->fct[CONV_LO_C] = 
-	data->fct[CONV_LO_X] = 
-	data->fct[CONV_UP_X] = 
-	data->fct[CONV_LO_O] = 
-	data->fct[CONV_UP_O] = 
-	data->fct[CONV_UP_S] = 
-	data->fct[CONV_UP_C] = 
-	data->fct[CONV_PERCENT] = 
+	data->fct_conv[CONV_LO_S] = &call_putstr;
+	data->fct_conv[CONV_LO_D] = &call_putnbr;
+//	data->fct_conv[CONV_UP_D] = // a faire
+//	data->fct_conv[CONV_LO_U] = &call_putbase;
+//	data->fct_conv[CONV_UP_U] = &call_putbase_long;
+/*	data->fct_conv[CONV_LO_C] = 
+	data->fct_conv[CONV_LO_X] = 
+	data->fct_conv[CONV_UP_X] = 
+	data->fct_conv[CONV_LO_O] = 
+	data->fct_conv[CONV_UP_O] = 
+	data->fct_conv[CONV_UP_S] = 
+	data->fct_conv[CONV_UP_C] = 
+	data->fct_conv[CONV_PERCENT] = 
+	data->fct_conv[CONV_P] = 
 */
 }
 
-int		parse_format(const char *format, int *index)
+
+void	init_data(t_data *data, va_list *ap, char *format)
 {
+	data->ap = ap;
+	data->format = format;
+	data->ret = 0;
+	init_fct_conv(data);
+}
+
+
+void	init_specify(t_specify *spec)
+{
+	spec->sharp = 0;
+}
+
+
+int		parse_format(t_data *data, int *index)
+{
+	int		i_temp;
+
+	i_temp = *index + 1;
+	init_specify(&data->spec);
+	if (parse_conversion(data, data->format[i_temp]))
+		*index = i_temp;
 	return (0);
 }
+
+
 
 int		ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			index;
 	t_data		data;
-	int			ret;
 
 	index = -1;
-	ret	 = 0;
-
-	data.fct[2] = &ft_putstr;
-	data.fct[1] = &ft_putnbr;
-//	data.fct[1](1);
-//	data.fct[2]("lol");
 
 	va_start(ap, format);
+	init_data(&data, &ap, (char *)format);
 	while (format[++index])
 	{
 		if (format[index] == '%')
-			ret += parse_format(&format[index + 1], &index);
+			parse_format(&data, &index);
 		else
 		{
 			ft_putchar(format[index]);
-			ret++;
+			data.ret++;
 		}
 	}
 	va_end(ap);
-	return (0);
+	return (data.ret);
 }

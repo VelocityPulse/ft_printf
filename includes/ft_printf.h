@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/15 02:12:07 by                  ###   ########.fr       */
+/*   Updated: 2016/08/15 21:22:51 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,25 @@
 # define CONV_P			0xD
 # define CONV_PERCENT	0xE
 
+typedef struct	s_specify
+{
+	int		sharp;
+}				t_specify;
+
 typedef struct	s_data
 {
-	void	(*fct[15])();
+	void		(*fct_conv[14])();
+	va_list		*ap;
+	int			ret;
+	char		*format;
+	t_specify	spec;
 }				t_data;
 
+void			call_putstr(t_data *data);
+void			call_putnbr(t_data *data);
+void			call_putbase(t_data *data, int base);
+
 int				ft_printf(const char *format, ...);
+int				parse_conversion(t_data *data, char type);
 
 #endif

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   call_putstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/12 21:58:22 by                   #+#    #+#             */
-/*   Updated: 2016/08/15 21:28:29 by                  ###   ########.fr       */
+/*   Created: 2016/08/15 17:16:00 by                   #+#    #+#             */
+/*   Updated: 2016/08/15 19:27:16 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int main()
+void	call_putstr(t_data *data)
 {
-	ft_putnbr(ft_printf("%sfdsfsd%dfsd\n\n", "lol  ", "XXXXX"));
-	BN
-	printf("%o\n", 99);
-	return (0);
-}
+	char	*str;
 
+	str = va_arg(*data->ap, char *);
+	data->ret += ft_strlen(str);
+	ft_putstr(str);
+}

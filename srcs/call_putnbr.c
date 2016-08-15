@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   call_putnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/12 21:58:22 by                   #+#    #+#             */
-/*   Updated: 2016/08/15 21:28:29 by                  ###   ########.fr       */
+/*   Created: 2016/08/15 19:30:29 by                   #+#    #+#             */
+/*   Updated: 2016/08/15 21:14:50 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int main()
+void	call_putnbr(t_data *data)
 {
-	ft_putnbr(ft_printf("%sfdsfsd%dfsd\n\n", "lol  ", "XXXXX"));
-	BN
-	printf("%o\n", 99);
-	return (0);
-}
+	int		n;
 
+	n = va_arg(*data->ap, int);
+	data->ret += ft_nblen(n);
+	ft_putnbr(n);
+}
