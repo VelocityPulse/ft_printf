@@ -6,30 +6,34 @@
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/12 19:31:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/15 21:28:08 by                  ###   ########.fr       *#
+#*   Updated: 2016/08/16 01:12:01 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
 
 
-FILES		=	ft_printf.c \
-				select_conversion.c \
-				call_putstr.c\
-				call_putnbr.c
+FILES =				ft_printf.c \
+					select_conversion.c \
+					call_putstr.c\
+					call_putnbr.c \
+					call_putbase.c \
+					init_fct_conv.c
 
-SRC			= $(addprefix srcs/, $(FILES))
+SRC =				$(addprefix srcs/, $(FILES))
 
-OBJS		= $(FILES:.c=.o)
+OBJS =				$(FILES:.c=.o)
 
-GCC		= gcc
+CC = 				gcc
 
-NAME	= libftprintf.a
+NAME =				libftprintf.a
 
-LIBFT	= libft/libft.a
+LIBFT =				libft/libft.a
 
-FLAGS	= #-Wextra -Werror -Wall
+DEBUGSEGFAULT =		-fsanitize=address
 
-RM		= rm -f
+FLAGS =				#$(DEBUGSEGFAULT) #-Wextra -Werror -Wall
+
+RM =				rm -f
 
 all: $(NAME)
 
@@ -39,7 +43,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	ranlib $(NAME)
 
 $(OBJS):
-	$(GCC) $(FLAGS) -c $(SRC)
+	$(CC) $(FLAGS) -c $(SRC)
 
 $(LIBFT):
 	make -C libft/

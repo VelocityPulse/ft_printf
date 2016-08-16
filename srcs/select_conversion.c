@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/15 21:24:33 by                  ###   ########.fr       */
+/*   Updated: 2016/08/16 01:08:21 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static int		conversion_a(t_data *data, char type)
 	else if (type == 'D')
 		data->fct_conv[CONV_UP_D](data);
 	else if (type == 'u')
-		data->fct_conv[CONV_LO_U](data, 10);
+		data->fct_conv[CONV_LO_U](data, 8);
 	else if (type == 'U')
-		data->fct_conv[CONV_UP_U](data, 10);
+		data->fct_conv[CONV_UP_U](data, 8);
 	else if (type == 'c')
 		data->fct_conv[CONV_LO_C](data);
 	else if (type == 'x')

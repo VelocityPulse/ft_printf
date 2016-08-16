@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/15 21:22:51 by                  ###   ########.fr       */
+/*   Updated: 2016/08/16 01:11:48 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void			call_putnbr(t_data *data);
 void			call_putbase(t_data *data, int base);
 
 int				ft_printf(const char *format, ...);
+void			init_fct_conv(t_data *data);
 int				parse_conversion(t_data *data, char type);
 
 #endif

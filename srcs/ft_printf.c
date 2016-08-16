@@ -6,30 +6,11 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/15 21:27:48 by                  ###   ########.fr       */
+/*   Updated: 2016/08/16 01:10:50 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-void	init_fct_conv(t_data *data)
-{
-	data->fct_conv[CONV_LO_S] = &call_putstr;
-	data->fct_conv[CONV_LO_D] = &call_putnbr;
-//	data->fct_conv[CONV_UP_D] = // a faire
-//	data->fct_conv[CONV_LO_U] = &call_putbase;
-//	data->fct_conv[CONV_UP_U] = &call_putbase_long;
-/*	data->fct_conv[CONV_LO_C] = 
-	data->fct_conv[CONV_LO_X] = 
-	data->fct_conv[CONV_UP_X] = 
-	data->fct_conv[CONV_LO_O] = 
-	data->fct_conv[CONV_UP_O] = 
-	data->fct_conv[CONV_UP_S] = 
-	data->fct_conv[CONV_UP_C] = 
-	data->fct_conv[CONV_PERCENT] = 
-	data->fct_conv[CONV_P] = 
-*/
-}
 
 
 void	init_data(t_data *data, va_list *ap, char *format)
