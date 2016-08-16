@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nblen_long.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_long.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 23:48:00 by                   #+#    #+#             */
-/*   Updated: 2016/08/16 02:10:59 by                  ###   ########.fr       */
+/*   Created: 2016/08/16 01:18:02 by                   #+#    #+#             */
+/*   Updated: 2016/08/16 01:31:48 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-int		ft_nblen_long(long n)
+void	ft_putnbr_long(long n)
 {
-	int len;
-
-	len = 0;
 	if (n < 0)
 	{
+		write(1, "-", 1);
 		n = -n;
-		len = ft_nblen_long(n);
-		len++;
 	}
-	else if (n >= 10)
+	if (n >= 10)
 	{
-		len = ft_nblen_long(n / 10);
-		len++;
+		ft_putnbr_long(n / 10);
+		ft_putnbr_long(n % 10);
 	}
 	else
-		len++;
-	return (len);
+		ft_putchar(n + 48);
 }
