@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/16 17:01:22 by                  ###   ########.fr       */
+/*   Updated: 2016/08/16 18:45:03 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,14 @@ void	init_data(t_data *data, va_list *ap, char *format)
 	data->ap = ap;
 	data->format = format;
 	data->ret = 0;
-	init_fct_conv(data);
+	data->fct_lenght[LENGHT_DEFAULT] = 
+	data->fct_lenght[LENGHT_L] = 
+	data->fct_lenght[LENGHT_H] = 
+	data->fct_lenght[LENGHT_H] = 
+	data->fct_lenght[LENGHT_J] = 
+	data->fct_lenght[LENGHT_Z] = 
+	data->fct_lenght[LENGHT_LL] = 
+	data->fct_lenght[LENGHT_HH] = 
 }
 
 
@@ -28,12 +35,15 @@ void	init_specify(t_specify *spec)
 }
 
 
+
+
 int		parse_format(t_data *data, int *index)
 {
 	int		i_temp;
 
 	i_temp = *index + 1;
 	init_specify(&data->spec);
+	i_temp = select_lenght(&data->spec, &data->format[i_temp]);
 	if (parse_conversion(data, data->format[i_temp]))
 		*index = i_temp;
 	return (0);

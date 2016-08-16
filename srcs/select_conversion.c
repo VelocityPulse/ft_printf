@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/16 17:02:14 by                  ###   ########.fr       */
+/*   Updated: 2016/08/16 18:35:01 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 static int		conversion_a(t_data *data, char type)
 {
 	if (type == 's')
+		BN
 	else if (type == 'd' || type == 'i')
+		call_putnbr(data);
 	else if (type == 'D')
 	else if (type == 'u')
 	else if (type == 'U')
