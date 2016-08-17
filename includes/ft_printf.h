@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/16 19:05:10 by                  ###   ########.fr       */
+/*   Updated: 2016/08/17 16:59:56 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct	s_specify
 typedef struct	s_data
 {
 	va_list		*ap;
-	void		(*fct_lenght[7])();
+	long long	(*fct_lenght[7])();
 	int			ret;
 	char		*format;
 	t_specify	spec;
@@ -45,7 +45,12 @@ int				ft_printf(const char *format, ...);
 int				select_lenght(t_specify *spec, char *format);
 int				parse_conversion(t_data *data, char type);
 
-long long		get_arg(va_list *ap, int lenght);
+void			init_fct_lenght(t_data *data);
+long long		va_arg_l(va_list *ap);
+long long		va_arg_j(va_list *ap);
+long long		va_arg_z(va_list *ap);
+long long		va_arg_ll(va_list *ap);
+long long		va_arg_hh(va_list *ap);
 
 void			call_putnbr(t_data *data);
 

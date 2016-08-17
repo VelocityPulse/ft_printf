@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   init_fct.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/12 21:58:22 by                   #+#    #+#             */
-/*   Updated: 2016/08/17 16:12:20 by                  ###   ########.fr       */
+/*   Created: 2016/08/17 16:19:43 by                   #+#    #+#             */
+/*   Updated: 2016/08/17 16:59:08 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int main()
+void	init_fct_lenght(t_data *data)
 {
-//	ft_putnbr(ft_printf("1234 %u\n", 1249));
-//	BN
-
-	int		n = 432524223;
-
-	printf("\n%jd\n", (intmax_t)12);
-
-	return (0);
+	data->fct_lenght[LENGHT_L] = &va_arg_l;
+	data->fct_lenght[LENGHT_J] = &va_arg_j;
+	data->fct_lenght[LENGHT_Z] = &va_arg_z;
+	data->fct_lenght[LENGHT_LL] = &va_arg_ll;
+	data->fct_lenght[LENGHT_HH] = &va_arg_hh;
 }
-

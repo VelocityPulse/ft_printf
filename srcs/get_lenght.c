@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_arg.c                                          :+:      :+:    :+:   */
+/*   get_lenght.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/16 18:57:03 by                   #+#    #+#             */
-/*   Updated: 2016/08/16 19:08:56 by                  ###   ########.fr       */
+/*   Created: 2016/08/17 16:45:52 by                   #+#    #+#             */
+/*   Updated: 2016/08/17 16:53:55 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-long long	get_arg_nbr(va_list *ap, int lenght)
+long long	va_arg_l(va_list *ap)
 {
-	long long	n;
+	return (va_arg(*ap, long));
+}
 
-	if (lenght == LENGHT_L)
-		n = (long long)va_arg(*ap, long);
-	else if (lenght == LENGHT_H)
-		n = va_arg(*ap, long long);
+long long	va_arg_j(va_list *ap)
+{
+	return (va_arg(*ap, long long));
+}
 
-	// condition "DEFAULT" a prendre en compte soit ici soit dans le call_putnbr
-	return (n);
+long long	va_arg_z(va_list *ap)
+{
+	return (va_arg(*ap, size_t));
+}
+
+long long	va_arg_ll(va_list *ap)
+{
+	return (va_arg(*ap, long long));
+}
+
+long long	va_arg_hh(va_list *ap)
+{
+	return ((char)va_arg(*ap, long long));
 }

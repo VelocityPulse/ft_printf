@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/16 18:04:16 by                   #+#    #+#             */
-/*   Updated: 2016/08/16 19:05:34 by                  ###   ########.fr       */
+/*   Updated: 2016/08/17 16:57:10 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,8 @@ void	call_putnbr(t_data *data)
 {
 	long long	n;
 
-	n = get_arg(data->ap, data->spec.lenght);
+	if (data->spec.lenght != LENGHT_DEFAULT)
+		n = get_arg_lenght(data->ap, data->spec.lenght);
+	else
+		n = get_arg_conv(data->ap, data->spec.)
 }
