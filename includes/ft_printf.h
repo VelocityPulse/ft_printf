@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/17 16:59:56 by                  ###   ########.fr       */
+/*   Updated: 2016/08/18 18:11:58 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 
 # include <stdarg.h>
 # include "../libft/libft.h"
+
+# define _FAULT_			0x00
+# define _ERROR_			0x00
+# define _SUCCES_			0x01
 
 # define LENGHT_DEFAULT		0x00
 # define LENGHT_L			0x01
@@ -53,5 +57,7 @@ long long		va_arg_ll(va_list *ap);
 long long		va_arg_hh(va_list *ap);
 
 void			call_putnbr(t_data *data);
+void			call_putnbr_l(t_data *data);
+void			call_putstr(t_data *data);
 
 #endif

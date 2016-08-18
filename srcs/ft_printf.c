@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/16 18:45:03 by                  ###   ########.fr       */
+/*   Updated: 2016/08/18 18:09:16 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,15 @@ void	init_data(t_data *data, va_list *ap, char *format)
 	data->ap = ap;
 	data->format = format;
 	data->ret = 0;
-	data->fct_lenght[LENGHT_DEFAULT] = 
-	data->fct_lenght[LENGHT_L] = 
-	data->fct_lenght[LENGHT_H] = 
-	data->fct_lenght[LENGHT_H] = 
-	data->fct_lenght[LENGHT_J] = 
-	data->fct_lenght[LENGHT_Z] = 
-	data->fct_lenght[LENGHT_LL] = 
-	data->fct_lenght[LENGHT_HH] = 
+	init_fct_lenght(data);
 }
 
 
 void	init_specify(t_specify *spec)
 {
 	spec->sharp = 0;
+	spec->lenght = LENGHT_DEFAULT;
 }
-
-
-
 
 int		parse_format(t_data *data, int *index)
 {
@@ -48,7 +39,6 @@ int		parse_format(t_data *data, int *index)
 		*index = i_temp;
 	return (0);
 }
-
 
 
 int		ft_printf(const char *format, ...)

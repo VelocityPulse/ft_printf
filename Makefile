@@ -6,7 +6,7 @@
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/12 19:31:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/17 17:02:31 by                  ###   ########.fr       *#
+#*   Updated: 2016/08/18 18:12:35 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -16,7 +16,10 @@ FILES =				ft_printf.c \
 					select_conversion.c \
 					select_lenght.c \
 					init_fct.c \
-					gct_lenght.c
+					get_lenght.c \
+					call_putnbr.c \
+					call_putnbr_l.c \
+					call_putstr.c
 
 
 SRC =				$(addprefix srcs/, $(FILES))
