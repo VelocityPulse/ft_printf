@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/18 18:11:58 by                  ###   ########.fr       */
+/*   Updated: 2016/08/18 19:43:45 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "debug.h"
 
 # include <stdarg.h>
+# include <unistd.h>
 # include "../libft/libft.h"
 
 # define _FAULT_			0x00
@@ -29,6 +30,10 @@
 # define LENGHT_HH			0x04
 # define LENGHT_J			0x05
 # define LENGHT_Z			0x06
+
+# define NO_CASE			0x00
+# define LO_CASE			0x00
+# define UP_CASE			0x01
 
 typedef struct	s_specify
 {
@@ -59,5 +64,9 @@ long long		va_arg_hh(va_list *ap);
 void			call_putnbr(t_data *data);
 void			call_putnbr_l(t_data *data);
 void			call_putstr(t_data *data);
+void			call_putbase(t_data *data, int base, int caps);
+void			call_putbase_l(t_data *data, int base, int caps);
+void			call_putchar(t_data *data);
+void			call_putpointer(t_data *data);
 
 #endif
