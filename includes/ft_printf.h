@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/21 00:54:11 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 01:35:16 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int				ft_printf(const char *format, ...);
 int				select_lenght(t_data *data, t_specify *spec, char *format);
 int				select_conversion(t_data *data, char type);
 
-void			init_fct_lenght(t_data *data);
 long long		va_arg_l(va_list *ap);
 long long		va_arg_z(va_list *ap);
 long long		va_arg_ll(va_list *ap);

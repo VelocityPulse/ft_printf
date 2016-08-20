@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/21 00:35:58 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 01:35:52 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	init_data(t_data *data, va_list *ap, char *format)
 	data->ap = ap;
 	data->format = format;
 	data->ret = 0;
-	init_fct_lenght(data);
 }
 
 
@@ -39,8 +38,6 @@ void	init_specify(t_specify *spec)
 
 int		parse_format(t_data *data, int *index)
 {
-	int		i_temp;
-
 	*index = *index + 1;
 	init_specify(&data->spec);
 	*index += select_lenght(data, &data->spec, &data->format[*index]);

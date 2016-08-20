@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 16:45:52 by                   #+#    #+#             */
-/*   Updated: 2016/08/17 16:53:55 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 00:53:49 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 long long	va_arg_l(va_list *ap)
 {
 	return (va_arg(*ap, long));
-}
-
-long long	va_arg_j(va_list *ap)
-{
-	return (va_arg(*ap, long long));
 }
 
 long long	va_arg_z(va_list *ap)
@@ -35,4 +30,9 @@ long long	va_arg_ll(va_list *ap)
 long long	va_arg_hh(va_list *ap)
 {
 	return ((char)va_arg(*ap, long long));
+}
+
+long long	va_arg_h(va_list *ap)
+{
+	return ((short)va_arg(*ap, long long));
 }

@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 00:36:39 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 01:25:32 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int		conversion_b(t_specify *spec, char type)
 	else if (type == 'D')
 		spec->fct_call = &call_putnbr_l;
 	else if (type == 'c' && spec->lenght_l == false)
-		spec->fct_call = &call_putstr;
+		spec->fct_call = &call_putchar;
 	else if (type == 'x')
 	{
 		spec->fct_call = &call_putbase;

@@ -6,7 +6,7 @@
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/12 19:31:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/18 19:44:13 by                  ###   ########.fr       *#
+#*   Updated: 2016/08/21 01:35:40 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -15,14 +15,14 @@
 FILES =				ft_printf.c \
 					select_conversion.c \
 					select_lenght.c \
-					init_fct.c \
 					get_lenght.c \
 					call_putnbr.c \
 					call_putnbr_l.c \
 					call_putstr.c \
+					call_putchar.c \
 					call_putbase.c \
 					call_putbase_l.c \
-					call_putpointer.c
+					call_putpointer.c \
 
 
 SRC =				$(addprefix srcs/, $(FILES))
@@ -37,7 +37,7 @@ LIBFT =				libft/libft.a
 
 DEBUGSEGFAULT =		-fsanitize=address
 
-FLAGS =				#$(DEBUGSEGFAULT) #-Wextra -Werror -Wall
+FLAGS =				 -Wextra -Werror -Wall #$(DEBUGSEGFAULT)
 
 RM =				rm -f
 
