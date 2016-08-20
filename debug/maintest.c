@@ -6,21 +6,19 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/12 21:58:22 by                   #+#    #+#             */
-/*   Updated: 2016/08/17 16:12:20 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 00:56:42 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+//#include "../includes/ft_printf.h"
+#include "blibft.h"
+#include <wchar.h>
+#include <stdlib.h>
 
 int main()
 {
-//	ft_putnbr(ft_printf("1234 %u\n", 1249));
-//	BN
-
-	int		n = 432524223;
-
-	printf("\n%jd\n", (intmax_t)12);
-
+	int n = 1000000000;
+	printf("%lld\n", 1000000000000000);
 	return (0);
 }
 
