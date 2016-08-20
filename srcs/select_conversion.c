@@ -6,56 +6,93 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/18 19:43:13 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 00:36:39 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int		conversion_a(t_data *data, char type)
+static int		conversion_a(t_specify *spec, char type)
 {
-	if (type == 's' && data->spec.lenght == LENGHT_DEFAULT)
-		call_putstr(data);
-	else if (type == 'd' || type == 'i')
-		call_putnbr(data);
-	else if (type == 'D')
-		call_putnbr_l(data);
-	else if (type == 'u')
-		call_putbase(data, 10, NO_CASE);
+	if (type == 'u')
+	{
+		spec->fct_call = &call_putbase;
+		spec->base = 10;
+		spec->caps = NO_CASE;
+	}
 	else if (type == 'U')
-		call_putbase_l(data, 10, NO_CASE);
-	else if (type == 'c' && data->spec.lenght == LENGHT_DEFAULT)
-		call_putstr(data);
-	else if (type == 'x')
-		call_putbase(data, 16, LO_CASE);
-	else
-		return (_FAULT_);
-	return (_SUCCES_);
-}
-
-static int		conversion_b(t_data *data, char type)
-{
-	if (type == 'X')
-		call_putbase(data, 16, UP_CASE);
+	{
+		spec->fct_call = &call_putbase_l;
+		spec->base = 10;
+		spec->caps = NO_CASE;
+	}
 	else if (type == 'o')
-		call_putbase(data, 8, NO_CASE);
-	else if (type == 'O')
-		call_putbase_l(data, 8, NO_CASE);
-	else if ((type == 'S') || (type == 's' && data->spec.lenght == LENGHT_L))
-	else if (type == 'C' || (type == 'c' && data->spec.lenght == LENGHT_L))
-	else if (type == '%')
-		data->ret += write(1, "%", 1);
-	else if (type == 'p' && data->spec.lenght == LENGHT_DEFAULT)
-		call_putpointer(data);
+	{
+		spec->fct_call = &call_putbase;
+		spec->base = 10;
+		spec->caps = NO_CASE;
+	}
 	else
 		return (_FAULT_);
 	return (_SUCCES_);
 }
 
-int		parse_conversion(t_data *data, char type)
+static int		conversion_b(t_specify *spec, char type)
 {
-	if (conversion_a(data, type) || conversion_b(data, type))
+	if (type == 's' && spec->lenght_l == false)
+		spec->fct_call = &call_putstr;
+	else if (type == 'd' || type == 'i')
+		spec->fct_call = &call_putnbr;
+	else if (type == 'D')
+		spec->fct_call = &call_putnbr_l;
+	else if (type == 'c' && spec->lenght_l == false)
+		spec->fct_call = &call_putstr;
+	else if (type == 'x')
+	{
+		spec->fct_call = &call_putbase;
+		spec->base = 16;
+		spec->caps = LO_CASE;
+	}
+	else if (type == 'X')
+	{
+		spec->fct_call = &call_putbase;
+		spec->base = 16;
+		spec->caps = UP_CASE;
+	}
+	else
+		return (_FAULT_);
+	return (_SUCCES_);
+}
+
+static int		conversion_c(t_data *data, t_specify *spec, char type)
+{
+//	if ((type == 'S') || (type == 's' && spec->lenght_l == true))
+//		spec->fct_call = &call_putwstr;
+//	else if (type == 'C' || (type == 'c' && spec->lenght_ll == true))
+//		spec->fct_call = &call_putwchar;
+	if (type == '%')
+		data->ret += write(1, "%", 1);
+	else if (type == 'p')
+		spec->fct_call = &call_putpointer;
+	else if (type == 'O')
+	{
+		spec->fct_call = &call_putbase_l;
+		spec->base = 8;
+		spec->caps = NO_CASE;
+	}
+	else
+		return (_FAULT_);
+	return (_SUCCES_);
+}
+
+int		select_conversion(t_data *data, char type)
+{
+	if (conversion_a(&data->spec, type) ||
+		conversion_b(&data->spec, type) ||
+		conversion_c(data, &data->spec, type))
+	{
 		return (_SUCCES_);
+		data->spec.type = type;
+	}
 	return (_FAULT_);
 }
-

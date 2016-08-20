@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/18 19:43:45 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 00:54:11 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,17 @@
 
 typedef struct	s_specify
 {
-	int		sharp;
-	int		lenght;
+	t_bool	sharp;
+	t_bool	lenght_l;
+	t_bool	lenght_ll;
+	t_bool	lenght_h;
+	t_bool	lenght_hh;
+	t_bool	lenght_j;
+	t_bool	lenght_z;
+	int		base;
+	int		caps;
+	void	(*fct_call)();
+	char	type;
 }				t_specify;
 
 typedef struct	s_data
@@ -51,21 +60,21 @@ typedef struct	s_data
 }				t_data;
 
 int				ft_printf(const char *format, ...);
-int				select_lenght(t_specify *spec, char *format);
-int				parse_conversion(t_data *data, char type);
+int				select_lenght(t_data *data, t_specify *spec, char *format);
+int				select_conversion(t_data *data, char type);
 
 void			init_fct_lenght(t_data *data);
 long long		va_arg_l(va_list *ap);
-long long		va_arg_j(va_list *ap);
 long long		va_arg_z(va_list *ap);
 long long		va_arg_ll(va_list *ap);
 long long		va_arg_hh(va_list *ap);
+long long		va_arg_h(va_list *ap);
 
 void			call_putnbr(t_data *data);
 void			call_putnbr_l(t_data *data);
 void			call_putstr(t_data *data);
-void			call_putbase(t_data *data, int base, int caps);
-void			call_putbase_l(t_data *data, int base, int caps);
+void			call_putbase(t_data *data);
+void			call_putbase_l(t_data *data);
 void			call_putchar(t_data *data);
 void			call_putpointer(t_data *data);
 

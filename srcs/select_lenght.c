@@ -6,32 +6,37 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/16 17:21:38 by                   #+#    #+#             */
-/*   Updated: 2016/08/16 17:57:45 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 00:14:58 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		select_lenght(t_specify *spec, char *format)
+int		select_lenght(t_data *data, t_specify *spec, char *format)
 {
-	spec->lenght = LENGHT_DEFAULT;
-	if (!ft_strncmp(format, "l", 1))
-		spec->lenght = LENGHT_L;
-	else if (!ft_strncmp(format, "h", 1))
-		spec->lenght = LENGHT_H;
-	else if (!ft_strncmp(format, "j", 1))
-		spec->lenght = LENGHT_J;
-	else if (!ft_strncmp(format, "z", 1))
-		spec->lenght = LENGHT_Z;
-	else
+	int		i;
+
+	i = -1;
+	while (!select_conversion(data, format[++i]))
 	{
-		if (!ft_strncmp(format, "ll", 2))
-			spec->lenght = LENGHT_LL;
-		else if (!ft_strncmp(format, "hh", 2))
-			spec->lenght = LENGHT_HH;
+		if (!ft_strncmp(&format[i], "ll", 2))
+			spec->lenght_ll = true;
+		else if (!ft_strncmp(&format[i], "hh", 2))
+			spec->lenght_hh = true;
 		else
-			return (0);
-		return (2);
+		{
+			if (!ft_strncmp(&format[i], "l", 1))
+				spec->lenght_l = true;
+			else if (!ft_strncmp(&format[i], "h", 1))
+				spec->lenght_h = true;
+			else if (!ft_strncmp(&format[i], "j", 1))
+				spec->lenght_j = true;
+			else if (!ft_strncmp(&format[i], "z", 1))
+				spec->lenght_z = true;
+			else
+				return (_ERROR_);
+		}
+		i++;
 	}
-	return (1);
+	return (i);
 }

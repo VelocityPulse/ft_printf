@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/18 18:09:16 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 00:35:58 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,30 @@ void	init_data(t_data *data, va_list *ap, char *format)
 
 void	init_specify(t_specify *spec)
 {
-	spec->sharp = 0;
-	spec->lenght = LENGHT_DEFAULT;
+	spec->sharp = false;
+	spec->lenght_l = false;
+	spec->lenght_ll = false;
+	spec->lenght_h = false;
+	spec->lenght_hh = false;
+	spec->lenght_j = false;
+	spec->lenght_z = false;
+	spec->base = 10;
+	spec->caps = LO_CASE;
+	spec->fct_call = NULL;
+	spec->type = 0;
 }
 
 int		parse_format(t_data *data, int *index)
 {
 	int		i_temp;
 
-	i_temp = *index + 1;
+	*index = *index + 1;
 	init_specify(&data->spec);
-	i_temp = select_lenght(&data->spec, &data->format[i_temp]);
-	if (parse_conversion(data, data->format[i_temp]))
-		*index = i_temp;
+	*index += select_lenght(data, &data->spec, &data->format[*index]);
+	if (data->spec.fct_call)
+		data->spec.fct_call(data);
 	return (0);
 }
-
 
 int		ft_printf(const char *format, ...)
 {
