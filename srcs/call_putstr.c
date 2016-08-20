@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 17:29:34 by                   #+#    #+#             */
-/*   Updated: 2016/08/18 18:11:22 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 01:39:14 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	call_putstr(t_data *data)
 	char	*str;
 
 	str = va_arg(*data->ap, char *);
+	if (!str)
+		return ;
 	data->ret += ft_strlen(str);
 	ft_putstr(str);
 }
