@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 19:09:31 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 01:20:51 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 02:09:14 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	call_putbase_l(t_data *data)
 	else
 		n = va_arg(*data->ap, unsigned long int);
 	str = ft_itoa_base_ll(n, spec->base);
-	if (spec->caps == UP_CASE)
-		ft_upperstr(str);
+	if (spec->caps == LO_CASE)
+		ft_lowerstr(str);
 	data->ret += ft_strlen(str);
 	ft_putstr(str);
 	ft_memdel((void **)&str);

@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 19:27:12 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 02:00:29 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 02:09:31 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	call_putpointer(t_data *data)
 	n = (long long)va_arg(*data->ap, void *);
 	data->ret += write(1, "0x", 2);
 	str = ft_itoa_base_ll(n, 16);
+	ft_lowerstr(str);
 	data->ret += ft_nblen_ll(n);
 	ft_putstr(str);
 	ft_memdel((void **)&str);
