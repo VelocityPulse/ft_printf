@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/16 18:04:16 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 00:57:08 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 01:58:08 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	call_putnbr(t_data *data)
 		n = va_arg_l(data->ap);
 	else
 		n = va_arg(*data->ap, int);
-	data->ret += ft_nblen(n);
-	ft_putnbr(n);
+	data->ret += ft_nblen_ll(n);
+	ft_putnbr_ll(n);
 }
