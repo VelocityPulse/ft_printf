@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/21 01:35:16 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 02:30:26 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct	s_specify
 typedef struct	s_data
 {
 	va_list		*ap;
-	long long	(*fct_lenght[7])();
 	int			ret;
 	char		*format;
 	t_specify	spec;
