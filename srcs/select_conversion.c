@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 01:25:32 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 03:14:17 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int		conversion_a(t_specify *spec, char type)
 	}
 	else
 		return (_FAULT_);
-	return (_SUCCES_);
+	return (_SUCCESS_);
 }
 
 static int		conversion_b(t_specify *spec, char type)
@@ -61,7 +61,7 @@ static int		conversion_b(t_specify *spec, char type)
 	}
 	else
 		return (_FAULT_);
-	return (_SUCCES_);
+	return (_SUCCESS_);
 }
 
 static int		conversion_c(t_data *data, t_specify *spec, char type)
@@ -82,7 +82,7 @@ static int		conversion_c(t_data *data, t_specify *spec, char type)
 	}
 	else
 		return (_FAULT_);
-	return (_SUCCES_);
+	return (_SUCCESS_);
 }
 
 int		select_conversion(t_data *data, char type)
@@ -91,8 +91,8 @@ int		select_conversion(t_data *data, char type)
 		conversion_b(&data->spec, type) ||
 		conversion_c(data, &data->spec, type))
 	{
-		return (_SUCCES_);
 		data->spec.type = type;
+		return (_SUCCESS_);
 	}
 	return (_FAULT_);
 }

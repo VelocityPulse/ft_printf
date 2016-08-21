@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/21 02:30:26 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 03:09:30 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define _FAULT_			0x00
 # define _ERROR_			0x00
-# define _SUCCES_			0x01
+# define _SUCCESS_			0x01
 
 # define LENGHT_DEFAULT		0x00
 # define LENGHT_L			0x01

@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/21 01:35:52 by                  ###   ########.fr       */
+/*   Updated: 2016/08/21 03:36:34 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,19 @@ void	init_specify(t_specify *spec)
 
 int		parse_format(t_data *data, int *index)
 {
-	*index = *index + 1;
+	int		i_temp;
+
+	i_temp = 1;
+	if (data->format[*index + 1] == 0)
+		return (_FAULT_);
 	init_specify(&data->spec);
-	*index += select_lenght(data, &data->spec, &data->format[*index]);
+	i_temp += select_lenght(data, &data->spec, &data->format[*index + 1]);
 	if (data->spec.fct_call)
 		data->spec.fct_call(data);
-	return (0);
+	if (i_temp == 1 && !data->spec.fct_call && data->spec.type != '%')
+		return (_SUCCESS_);
+	*index += i_temp;
+	return (_SUCCESS_);
 }
 
 int		ft_printf(const char *format, ...)
@@ -53,7 +60,6 @@ int		ft_printf(const char *format, ...)
 	t_data		data;
 
 	index = -1;
-
 	va_start(ap, format);
 	init_data(&data, &ap, (char *)format);
 	while (format[++index])
