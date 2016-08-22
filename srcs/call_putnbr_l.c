@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 17:15:32 by                   #+#    #+#             */
-/*   Updated: 2016/08/22 19:57:14 by                  ###   ########.fr       */
+/*   Updated: 2016/08/22 23:47:34 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,17 @@ void	call_putnbr_l(t_data *data)
 	t_specify	*spec;
 
 	spec = &data->spec;
-	if (spec->lenght_h == true)
-		n = va_arg_h(data->ap);
+	if (spec->lenght_z == true)
+		n = va_arg_z(data->ap);
 	else if (spec->lenght_ll == true)
 		n = va_arg_ll(data->ap);
 	else
-		n = (long long)va_arg(*data->ap, long);
+		n = va_arg(*data->ap, long);
 	data->ret += ft_nblen_ll(n);
-//	ft_putnbr_ll(n);
+	ft_putnbr_ll(n);
 }
+
+/*
+** valid flags :
+** ll z
+*/

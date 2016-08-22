@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 03:14:17 by                  ###   ########.fr       */
+/*   Updated: 2016/08/22 20:40:30 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int		conversion_a(t_specify *spec, char type)
 	else if (type == 'o')
 	{
 		spec->fct_call = &call_putbase;
-		spec->base = 10;
+		spec->base = 8;
 		spec->caps = NO_CASE;
 	}
 	else

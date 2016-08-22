@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 18:14:24 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 02:12:29 by                  ###   ########.fr       */
+/*   Updated: 2016/08/22 23:45:34 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ void	call_putbase(t_data *data)
 		n = va_arg_ll(data->ap);
 	else if (spec->lenght_l == true)
 		n = va_arg_l(data->ap);
+	else if (spec->lenght_z == true)
+		n = va_arg_l(data->ap);
 	else if (spec->lenght_hh == true)
-		n = va_arg_hh(data->ap);
+		n = (unsigned char)va_arg(*data->ap, long long);
 	else if (spec->lenght_h == true)
-		n = va_arg_h(data->ap);
+		n = (unsigned short)va_arg(*data->ap, long long);
 	else
 		n = va_arg(*data->ap, unsigned int);
 	str = ft_itoa_base_ll(n, spec->base);
@@ -36,3 +38,8 @@ void	call_putbase(t_data *data)
 	ft_putstr(str);
 	ft_memdel((void **)&str);
 }
+
+/*
+** valid flags :
+** ll l z hh h
+*/
