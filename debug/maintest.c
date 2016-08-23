@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/12 21:58:22 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 00:56:42 by                  ###   ########.fr       */
+/*   Updated: 2016/08/22 23:42:53 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,19 @@
 #include "blibft.h"
 #include <wchar.h>
 #include <stdlib.h>
+#include <limits.h>
+#include "../includes/debug.h"
 
 int main()
 {
-	int n = 1000000000;
-	printf("%lld\n", 1000000000000000);
+	int n1;
+	int n2;
+
+
+	n1 = ft_printf("%hhO, %O", 0, USHRT_MAX + 2);
+	BN
+	n2 = printf("%hhO, %O", 0, USHRT_MAX + 2);
+	printf("\n\n%d\n%d\n", n1, n2);
 	return (0);
 }
 

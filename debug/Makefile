@@ -6,14 +6,14 @@
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/12 22:00:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/12 22:26:59 by                  ###   ########.fr       *#
+#*   Updated: 2016/08/22 20:02:37 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
 LIBFTPRINTF =	../libftprintf.a
-
+#-fsanitize=address
 all: $(LIBFTPRINTF)
-	gcc maintest.c ../libftprintf.a
+	gcc  maintest.c ../libftprintf.a
 
 $(LIBFTPRINTF):
 	make -C ../
@@ -30,5 +30,5 @@ re: fclean all
 r:
 	make r -C ../
 	@make
-	@echo "---------------------------------------------"
+	@echo "-----------------------------------------------------------------------------------"
 	./a.out
