@@ -6,7 +6,7 @@
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/12 19:31:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/26 00:46:24 by                  ###   ########.fr       *#
+#*   Updated: 2016/08/26 00:51:55 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -16,6 +16,7 @@ FILES =				ft_printf.c \
 					process.c \
 					select_conversion.c \
 					select_lenght.c \
+					select_flags.c \
 					get_lenght.c \
 					call_putnbr.c \
 					call_putnbr_l.c \
