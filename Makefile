@@ -6,7 +6,7 @@
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/12 19:31:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/21 01:35:40 by                  ###   ########.fr       *#
+#*   Updated: 2016/08/24 00:45:43 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -23,6 +23,8 @@ FILES =				ft_printf.c \
 					call_putbase.c \
 					call_putbase_l.c \
 					call_putpointer.c \
+					call_putwchar.c \
+					call_putwstr.c
 
 
 SRC =				$(addprefix srcs/, $(FILES))

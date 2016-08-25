@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/21 03:09:30 by                  ###   ########.fr       */
+/*   Updated: 2016/08/24 00:48:07 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,7 @@ void			call_putbase(t_data *data);
 void			call_putbase_l(t_data *data);
 void			call_putchar(t_data *data);
 void			call_putpointer(t_data *data);
+void			call_putwchar(t_data *data);
+void			call_putwstr(t_data *data);
 
 #endif

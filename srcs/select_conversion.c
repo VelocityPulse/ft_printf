@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/22 20:40:30 by                  ###   ########.fr       */
+/*   Updated: 2016/08/24 00:52:22 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ static int		conversion_b(t_specify *spec, char type)
 
 static int		conversion_c(t_data *data, t_specify *spec, char type)
 {
-//	if ((type == 'S') || (type == 's' && spec->lenght_l == true))
-//		spec->fct_call = &call_putwstr;
-//	else if (type == 'C' || (type == 'c' && spec->lenght_ll == true))
-//		spec->fct_call = &call_putwchar;
+	if ((type == 'S') || (type == 's' && spec->lenght_l == true))
+		spec->fct_call = &call_putwstr;
+	else if (type == 'C' || (type == 'c' && spec->lenght_l == true))
+		spec->fct_call = &call_putwchar;
 	if (type == '%')
 		data->ret += write(1, "%", 1);
 	else if (type == 'p')
