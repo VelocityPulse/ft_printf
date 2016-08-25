@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/25 21:19:21 by                  ###   ########.fr       */
+/*   Updated: 2016/08/26 00:46:14 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@
 typedef struct	s_specify
 {
 	t_bool	sharp;
+	t_bool	positive_sign;
+	t_bool	negative_sign;
+	t_bool	space;
 	t_bool	lenght_l;
 	t_bool	lenght_ll;
 	t_bool	lenght_h;
@@ -60,8 +63,11 @@ typedef struct	s_data
 
 int				ft_printf(const char *format, ...);
 int				process_spec(t_data *data, t_specify *spec, char *format);
-int				select_lenght(t_specify *spec, char *format);
+int				select_lenght(t_specify *spec, char *format, int *i);
+int				select_flags(t_specify *spec, char type);
 int				select_conversion(t_data *data, char type);
+
+int				sharp(t_specify *spec);
 
 long long		va_arg_l(va_list *ap);
 long long		va_arg_z(va_list *ap);

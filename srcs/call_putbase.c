@@ -6,13 +6,13 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 18:14:24 by                   #+#    #+#             */
-/*   Updated: 2016/08/22 23:45:34 by                  ###   ########.fr       */
+/*   Updated: 2016/08/26 00:41:58 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	call_putbase(t_data *data)
+void			call_putbase(t_data *data)
 {
 	unsigned long long	n;
 	t_specify			*spec;
@@ -34,6 +34,7 @@ void	call_putbase(t_data *data)
 	str = ft_itoa_base_ll(n, spec->base);
 	if (spec->caps == LO_CASE)
 		ft_lowerstr(str);
+	data->ret += sharp(spec);
 	data->ret += ft_strlen(str);
 	ft_putstr(str);
 	ft_memdel((void **)&str);

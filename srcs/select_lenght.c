@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/16 17:21:38 by                   #+#    #+#             */
-/*   Updated: 2016/08/25 21:19:25 by                  ###   ########.fr       */
+/*   Updated: 2016/08/25 23:08:08 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,21 @@ static int		select_lenght_help(t_specify *spec, char t)
 	return (_SUCCESS_);
 }
 
-int				select_lenght(t_specify *spec, char *format)
+int				select_lenght(t_specify *spec, char *format, int *i)
 {
 	if (!ft_strncmp(format, "ll", 2))
 	{
 		spec->lenght_ll = true;
-		return (2);
+		*i += 1;
+		return (_SUCCESS_);
 	}
 	else if (!ft_strncmp(format, "hh", 2))
 	{
 		spec->lenght_hh = true;
-		return (2);
+		*i += 1;
+		return (_SUCCESS_);
 	}
 	else if (select_lenght_help(spec, *format))
-		return (1);
+		return (_SUCCESS_);
 	return (_ERROR_);
 }

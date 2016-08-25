@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/25 19:56:11 by                  ###   ########.fr       */
+/*   Updated: 2016/08/25 23:27:11 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ static void		init_data(t_data *data, va_list *ap, char *format)
 static void		init_specify(t_specify *spec)
 {
 	spec->sharp = false;
+	spec->positive_sign = false;
+	spec->negative_sign = false;
+	spec->space = false;
 	spec->lenght_l = false;
 	spec->lenght_ll = false;
 	spec->lenght_h = false;

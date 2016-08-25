@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process.c                                          :+:      :+:    :+:   */
+/*   select_flags.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/25 19:39:38 by                   #+#    #+#             */
-/*   Updated: 2016/08/25 23:49:44 by                  ###   ########.fr       */
+/*   Created: 2016/08/25 23:10:57 by                   #+#    #+#             */
+/*   Updated: 2016/08/25 23:44:18 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		process_spec(t_data *data, t_specify *spec, char *format)
+int		select_flags(t_specify *spec, char type)
 {
-	int		i;
-	int		ret;
-
-	i = 0;
-	ret = 0;
-	while (!select_conversion(data, format[i]))
-	{
-		if (!select_lenght(spec, &format[i], &i))
-		{
-			if (!select_flags(spec, format[i]))
-				;
-		}
-		i++;
-	}
-	return (i);
+	if (type == '#')
+		spec->sharp = true;
+	else if (type == '+')
+		spec->positive_sign = true;
+	else if (type == '-')
+		spec->negative_sign = true;
+	else if (type == ' ')
+		spec->space = true;
+	else
+		return (_ERROR_);
+	return (_SUCCESS_);
 }
