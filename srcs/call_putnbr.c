@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/16 18:04:16 by                   #+#    #+#             */
-/*   Updated: 2016/08/25 20:19:31 by                  ###   ########.fr       */
+/*   Updated: 2016/08/26 02:06:13 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ void	call_putnbr(t_data *data)
 	else
 		n = va_arg(*data->ap, int);
 	data->ret += ft_nblen_ll(n);
+	if (n >= 0)
+	{
+		if (spec->positive_sign == true)
+			data->ret += write(1, "+", 1);
+		else if (spec->space == true)
+			data->ret += write(1, " ", 1);
+	}
 	ft_putnbr_ll(n);
 }
 

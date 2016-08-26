@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/25 19:56:36 by                  ###   ########.fr       */
+/*   Updated: 2016/08/26 02:09:00 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ static int		conversion_b(t_specify *spec, char type)
 	return (_SUCCESS_);
 }
 
-static int		conversion_c(t_data *data, t_specify *spec, char type)
+static int		conversion_c(t_specify *spec, char type)
 {
 	if ((type == 'S') || (type == 's' && spec->lenght_l == true))
 		spec->fct_call = &call_putwstr;
 	else if (type == 'C' || (type == 'c' && spec->lenght_l == true))
 		spec->fct_call = &call_putwchar;
-	if (type == '%')
-		data->ret += write(1, "%", 1);
+	else if (type == '%')
+		spec->fct_call = &call_percent;
 	else if (type == 'p')
 		spec->fct_call = &call_putpointer;
 	else if (type == 'O')
@@ -85,13 +85,13 @@ static int		conversion_c(t_data *data, t_specify *spec, char type)
 	return (_SUCCESS_);
 }
 
-int		select_conversion(t_data *data, char type)
+int		select_conversion(t_specify *spec, char type)
 {
-	if (conversion_a(&data->spec, type) ||
-		conversion_b(&data->spec, type) ||
-		conversion_c(data, &data->spec, type))
+	if (conversion_a(spec, type) ||
+		conversion_b(spec, type) ||
+		conversion_c(spec, type))
 	{
-		data->spec.type = type;
+		spec->type = type;
 		return (_SUCCESS_);
 	}
 	return (_FAULT_);

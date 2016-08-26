@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_flags.c                                     :+:      :+:    :+:   */
+/*   call_percent.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/25 23:10:57 by                   #+#    #+#             */
-/*   Updated: 2016/08/26 01:35:47 by                  ###   ########.fr       */
+/*   Created: 2016/08/26 01:49:57 by                   #+#    #+#             */
+/*   Updated: 2016/08/26 01:50:57 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		select_flags(t_specify *spec, char type)
+void	call_percent(t_data *data)
 {
-	if (type == '#')
-		spec->sharp = true;
-	else if (type == '+')
-		spec->positive_sign = true;
-	else if (type == '-')
-		spec->negative_sign = true;
-	else if (type == ' ')
-		spec->space = true;
-	else
-		return (_ERROR_);
-	return (_SUCCESS_);
+	data->ret += write(1, "%", 1);
 }

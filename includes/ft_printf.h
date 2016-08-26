@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/26 00:46:14 by                  ###   ########.fr       */
+/*   Updated: 2016/08/26 01:53:03 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct	s_specify
 	int		caps;
 	void	(*fct_call)();
 	char	type;
+	char	fault;
 }				t_specify;
 
 typedef struct	s_data
@@ -62,10 +63,10 @@ typedef struct	s_data
 }				t_data;
 
 int				ft_printf(const char *format, ...);
-int				process_spec(t_data *data, t_specify *spec, char *format);
+int				process_spec(t_specify *spec, char *format);
 int				select_lenght(t_specify *spec, char *format, int *i);
 int				select_flags(t_specify *spec, char type);
-int				select_conversion(t_data *data, char type);
+int				select_conversion(t_specify *spec, char type);
 
 int				sharp(t_specify *spec);
 
@@ -75,6 +76,7 @@ long long		va_arg_ll(va_list *ap);
 long long		va_arg_hh(va_list *ap);
 long long		va_arg_h(va_list *ap);
 
+void			call_percent(t_data *data);
 void			call_putnbr(t_data *data);
 void			call_putnbr_l(t_data *data);
 void			call_putstr(t_data *data);

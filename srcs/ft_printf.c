@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/25 23:27:11 by                  ###   ########.fr       */
+/*   Updated: 2016/08/26 02:01:14 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void		init_specify(t_specify *spec)
 	spec->caps = LO_CASE;
 	spec->fct_call = NULL;
 	spec->type = 0;
+	spec->fault = 0;
 }
 
 static int		parse_format(t_data *data, int *index)
@@ -45,11 +46,11 @@ static int		parse_format(t_data *data, int *index)
 	if (data->format[*index + 1] == 0)
 		return (_FAULT_);
 	init_specify(&data->spec);
-	i_temp += process_spec(data, &data->spec, &data->format[*index + 1]);
+	i_temp += process_spec(&data->spec, &data->format[*index + 1]);
 	if (data->spec.fct_call)
 		data->spec.fct_call(data);
-	if (i_temp == 1 && !data->spec.fct_call && data->spec.type != '%')
-		return (_SUCCESS_);
+	if (data->spec.fault)
+		data->ret += write(1, &data->spec.fault, 1);
 	*index += i_temp;
 	return (_SUCCESS_);
 }
