@@ -6,22 +6,11 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/16 18:04:16 by                   #+#    #+#             */
-/*   Updated: 2016/08/27 19:48:03 by                  ###   ########.fr       */
+/*   Updated: 2016/08/27 19:54:04 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-void			help_putnbr(long long n)
-{
-	if (n == -9223372036854775807 - 1)
-	{
-		ft_putnbr_ll(922337203685477580);
-		write(1, "8", 1);
-	}
-	else
-		ft_putnbr_ll(ft_absll(n));
-}
 
 void			call_putnbr(t_data *data)
 {
