@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/26 23:23:10 by                  ###   ########.fr       */
+/*   Updated: 2016/08/27 03:58:12 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,25 @@ typedef struct	s_specify
 	t_bool	positive_sign;
 	t_bool	negative_sign;
 	t_bool	space;
+	t_bool	zero_pad;
 	t_bool	lenght_l;
 	t_bool	lenght_ll;
 	t_bool	lenght_h;
 	t_bool	lenght_hh;
 	t_bool	lenght_j;
 	t_bool	lenght_z;
+	t_bool	dot;
+	int		dot_value;
+	int		field_width;
 	int		base;
 	int		caps;
 	void	(*fct_call)();
 	char	type;
 	char	fault;
+	int		nb_len;
+	t_bool	sign;
+	int		n_field;
+	int		n_dot;
 }				t_specify;
 
 typedef struct	s_data
