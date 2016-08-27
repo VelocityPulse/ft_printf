@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 17:15:32 by                   #+#    #+#             */
-/*   Updated: 2016/08/27 19:57:19 by                  ###   ########.fr       */
+/*   Updated: 2016/08/27 20:06:36 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	call_putnbr_l(t_data *data)
 	spec->nb_len += ft_nblen_ll(n) - (n < 0 ? 1 : 0);
 	data->ret += spec->nb_len;
 	before_printing_d(data, spec, n);
-	help_putnbr(n);
+	help_putnbr(data, n);
 	after_printing_d(data, spec);
 }
 
