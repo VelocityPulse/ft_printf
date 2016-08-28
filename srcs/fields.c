@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   call_putchar.c                                     :+:      :+:    :+:   */
+/*   fields.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/18 19:13:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/28 16:22:06 by                  ###   ########.fr       */
+/*   Created: 2016/08/28 17:14:01 by                   #+#    #+#             */
+/*   Updated: 2016/08/28 17:20:38 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	call_putchar(t_data *data)
+void	calculate_fields(t_specify *spec, int nblen, int *nd, int *nf)
 {
-	unsigned char	c;
-
-	c = (unsigned char)va_arg(*data->ap, int);
-	before_printing_c(data, &data->spec);
-	data->ret += write(1, &c, 1);
-	after_printing_c(data, &data->spec);
+	*nd = spec->dot_value - nblen;
+	if (*nd < 0)
+		*nd = 0;
+	*nf = (spec->field_width - nblen) - *nd;
 }

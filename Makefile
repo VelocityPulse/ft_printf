@@ -6,7 +6,7 @@
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/12 19:31:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/27 19:47:41 by                  ###   ########.fr       *#
+#*   Updated: 2016/08/28 17:21:12 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -29,8 +29,10 @@ FILES =				ft_printf.c \
 					call_putpointer.c \
 					call_putwchar.c \
 					call_putwstr.c \
+					fields.c \
 					sharp.c \
-					help_print_d.c
+					help_print_d.c \
+					help_print_c.c
 
 
 SRC =				$(addprefix srcs/, $(FILES))
