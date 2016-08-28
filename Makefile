@@ -6,7 +6,7 @@
 #*   By:  <>                                        +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/08/12 19:31:40 by                   #+#    #+#             *#
-#*   Updated: 2016/08/28 17:21:12 by                  ###   ########.fr       *#
+#*   Updated: 2016/08/28 17:35:15 by                  ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -32,7 +32,8 @@ FILES =				ft_printf.c \
 					fields.c \
 					sharp.c \
 					help_print_d.c \
-					help_print_c.c
+					help_print_c.c \
+					help_print_p.c
 
 
 SRC =				$(addprefix srcs/, $(FILES))

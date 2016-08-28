@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 19:27:12 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 02:17:58 by                  ###   ########.fr       */
+/*   Updated: 2016/08/28 17:54:24 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@ void	call_putpointer(t_data *data)
 	char		*str;
 
 	n = (long long)va_arg(*data->ap, void *);
-	data->ret += write(1, "0x", 2);
 	str = ft_itoa_base_ll(n, 16);
 	ft_lowerstr(str);
-	data->ret += ft_strlen(str);
-	ft_putstr(str);
+	data->spec.nb_len = ft_strlen(str);
+	data->ret += data->spec.nb_len;
+	before_printing_p(data, &data->spec);
+	if (data->spec.dot == true && data->spec.dot_value == 0 && n == 0)
+		data->ret--;
+	else
+		ft_putstr(str);
+	after_printing_d(data, &data->spec);
 	ft_memdel((void **)&str);
 }

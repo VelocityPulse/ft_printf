@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/27 19:42:52 by                   #+#    #+#             */
-/*   Updated: 2016/08/27 20:07:16 by                  ###   ########.fr       */
+/*   Updated: 2016/08/28 17:20:37 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,6 @@ static int		put_sign(t_data *data, t_specify *spec, long long n)
 	else
 		data->ret += write(1, "-", 1);
 	return (_SUCCESS_);
-}
-
-static void		calculate_fields(t_specify *spec, int nblen, int *nd, int *nf)
-{
-	*nd = spec->dot_value - nblen;
-	if (*nd < 0)
-		*nd = 0;
-	*nf = (spec->field_width - nblen) - spec->sign - *nd;
-
 }
 
 void		before_printing_d(t_data *data, t_specify *spec, long long n)
