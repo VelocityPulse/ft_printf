@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/27 03:58:36 by                  ###   ########.fr       */
+/*   Updated: 2016/08/28 18:21:30 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,23 @@ static void		init_specify(t_specify *spec)
 	spec->n_dot = 0;
 }
 
+static int		print_field(t_specify *spec)
+{
+	char	pad_field;
+	int		ret;
+
+	ret = 0;
+	if (spec->negative_sign == false)
+	{
+		pad_field = ' ';
+		if (spec->zero_pad == true)
+			pad_field = '0';
+		while (--spec->field_width > 0)
+			ret += write(1, &pad_field, 1);
+	}
+	return (ret);
+}
+
 static int		parse_format(t_data *data, int *index)
 {
 	int		i_temp;
@@ -58,7 +75,10 @@ static int		parse_format(t_data *data, int *index)
 	if (data->spec.fct_call)
 		data->spec.fct_call(data);
 	if (data->spec.fault)
+	{
+		data->ret += print_field(&data->spec);
 		data->ret += write(1, &data->spec.fault, 1);
+	}
 	*index += i_temp;
 	return (_SUCCESS_);
 }
