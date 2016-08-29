@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnwstr.c                                      :+:      :+:    :+:   */
+/*   ft_charwlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/26 23:59:23 by                   #+#    #+#             */
-/*   Updated: 2016/08/29 21:57:29 by                  ###   ########.fr       */
+/*   Created: 2016/08/29 22:17:46 by                   #+#    #+#             */
+/*   Updated: 2016/08/29 22:25:06 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putnwstr(int *str, int len)
+int		ft_charwlen(int c)
 {
-	int		ret;
-	int		i;
-
-	ret = 0;
-	i = -1;
-	while (ret < len && str[++i])
-		ret += ft_putnwchar(str[i], len - ret);
-	return (ret);
+	if (c <= 0x7F)
+		return (1);
+	if (c <= 0x7FF)
+		return (2);
+	if (c <= 0xFFFF)
+		return (3);
+	if (c <= 0x10FFFF)
+		return (4);
+	return (0);
 }

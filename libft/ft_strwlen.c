@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnwstr.c                                      :+:      :+:    :+:   */
+/*   ft_strwlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/26 23:59:23 by                   #+#    #+#             */
-/*   Updated: 2016/08/29 21:57:29 by                  ###   ########.fr       */
+/*   Created: 2016/08/29 15:03:54 by                   #+#    #+#             */
+/*   Updated: 2016/08/29 22:25:39 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putnwstr(int *str, int len)
+int		ft_strwlen(int *str)
 {
-	int		ret;
 	int		i;
+	int		len;
 
-	ret = 0;
 	i = -1;
-	while (ret < len && str[++i])
-		ret += ft_putnwchar(str[i], len - ret);
-	return (ret);
+	len = 0;
+	while (str[++i])
+		len += ft_charwlen(str[i]);
+	return (len);
 }
