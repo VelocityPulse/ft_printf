@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 17:29:34 by                   #+#    #+#             */
-/*   Updated: 2016/08/21 01:59:53 by                  ###   ########.fr       */
+/*   Updated: 2016/08/29 14:50:56 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	call_putstr(t_data *data)
 
 	str = va_arg(*data->ap, char *);
 	if (!str)
-	{
-		data->ret += write(1, "(null)", 6);
-		return ;
-	}
-	data->ret += ft_strlen(str);
+		str = "(null)";
+	data->spec.nb_len = ft_strlen(str);
+	data->ret += data->spec.nb_len;
+	before_printing_s(data, &data->spec);
 	ft_putstr(str);
+	after_printing_s(data, &data->spec);
 }
