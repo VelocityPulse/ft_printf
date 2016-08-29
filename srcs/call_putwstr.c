@@ -6,21 +6,25 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/24 00:45:49 by                   #+#    #+#             */
-/*   Updated: 2016/08/24 00:47:27 by                  ###   ########.fr       */
+/*   Updated: 2016/08/29 22:26:59 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	call_putwstr(t_data *data)
+void			call_putwstr(t_data *data)
 {
-	int		*str;
+	int			*str;
+	t_specify	*spec;
 
+	spec = &data->spec;
 	str = va_arg(*data->ap, int *);
 	if (!str)
-	{
-		data->ret += write(1, "(null)", 6);
-		return ;
-	}
-	data->ret += ft_putwstr(str);
+		str = L"(null)";
+	data->spec.nb_len = ft_strwlen(str);
+	if (spec->dot == true && spec->dot_value < spec->nb_len)
+		spec->nb_len = spec->dot_value;
+	before_printing_s(data, &data->spec);
+	data->ret += ft_putnwstr(str, spec->nb_len);
+	after_printing_s(data, &data->spec);
 }
