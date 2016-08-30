@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/30 16:49:24 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 17:52:38 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@
 # define LO_CASE			0x00
 # define UP_CASE			0x01
 
+# define SHARP_NONE			0x00
+# define SHARP_HEXA_UP		0x01
+# define SHARP_HEXA_LO		0x02
+# define SHARP_OCTAL		0x03
+
 typedef struct	s_specify
 {
 	t_bool	sharp;
@@ -60,6 +65,7 @@ typedef struct	s_specify
 	t_bool	sign;
 	int		n_field;
 	int		n_dot;
+	int		sharp_mode;
 }				t_specify;
 
 typedef struct	s_data
@@ -77,7 +83,7 @@ int				select_lenght(t_specify *spec, char *format, int *i);
 int				select_flags(t_specify *spec, char type);
 int				select_conversion(t_specify *spec, char type);
 
-int				sharp(t_specify *spec);
+int				sharp_specify(t_specify *spec, unsigned long long n);
 
 long long		va_arg_l(va_list *ap);
 long long		va_arg_z(va_list *ap);
@@ -104,5 +110,7 @@ void			help_putnbr(t_data *data, long long n);
 
 void			before_printing_s(t_data *data, t_specify *spec);
 void			after_printing_s(t_data *data, t_specify *spec);
+
+void			before_printing_b(t_data *data, t_specify *spec);
 
 #endif
