@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/29 14:45:02 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 16:47:21 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,6 @@ void			calculate_fields(t_specify *spec, int nblen, int *nd, int *nf);
 void			before_printing_d(t_data *data, t_specify *spec, long long n);
 void			after_printing_d(t_data *data, t_specify *spec);
 void			help_putnbr(t_data *data, long long n);
-
-void			before_printing_c(t_data *data, t_specify *spec);
-void			after_printing_c(t_data *data, t_specify *spec);
 
 void			before_printing_s(t_data *data, t_specify *spec);
 void			after_printing_s(t_data *data, t_specify *spec);
