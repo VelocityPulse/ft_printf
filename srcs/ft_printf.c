@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/30 17:14:01 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 19:30:33 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void		init_specify(t_specify *spec)
 	spec->n_field = 0;
 	spec->n_dot = 0;
 	spec->sharp_mode = 0;
+	spec->n = 0;
 }
 
 static int		print_field(t_specify *spec)

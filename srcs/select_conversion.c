@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/08/26 02:09:00 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 18:34:51 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ static int		conversion_a(t_specify *spec, char type)
 	if (type == 'u')
 	{
 		spec->fct_call = &call_putbase;
-		spec->base = 10;
+		spec->base = DECIMAL_BASE;
 		spec->caps = NO_CASE;
 	}
 	else if (type == 'U')
 	{
 		spec->fct_call = &call_putbase_l;
-		spec->base = 10;
+		spec->base = DECIMAL_BASE;
 		spec->caps = NO_CASE;
 	}
 	else if (type == 'o')
 	{
 		spec->fct_call = &call_putbase;
-		spec->base = 8;
+		spec->base = OCTAL_BASE;
 		spec->caps = NO_CASE;
 	}
 	else
@@ -50,13 +50,13 @@ static int		conversion_b(t_specify *spec, char type)
 	else if (type == 'x')
 	{
 		spec->fct_call = &call_putbase;
-		spec->base = 16;
+		spec->base = HEXA_BASE;
 		spec->caps = LO_CASE;
 	}
 	else if (type == 'X')
 	{
 		spec->fct_call = &call_putbase;
-		spec->base = 16;
+		spec->base = HEXA_BASE;
 		spec->caps = UP_CASE;
 	}
 	else
@@ -77,7 +77,7 @@ static int		conversion_c(t_specify *spec, char type)
 	else if (type == 'O')
 	{
 		spec->fct_call = &call_putbase_l;
-		spec->base = 8;
+		spec->base = OCTAL_BASE;
 		spec->caps = NO_CASE;
 	}
 	else

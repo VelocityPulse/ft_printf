@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/30 17:52:38 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 19:22:05 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,14 @@
 # define _ERROR_			0x00
 # define _SUCCESS_			0x01
 
-# define LENGHT_DEFAULT		0x00
-# define LENGHT_L			0x01
-# define LENGHT_LL			0x02
-# define LENGHT_H			0x03
-# define LENGHT_HH			0x04
-# define LENGHT_J			0x05
-# define LENGHT_Z			0x06
-
 # define NO_CASE			0x00
 # define LO_CASE			0x00
 # define UP_CASE			0x01
+
+# define OCTAL_BASE			0x08
+# define HEXA_BASE			0x10
+# define DECIMAL_BASE		0x0A
+# define BIN_BASE			0x02
 
 # define SHARP_NONE			0x00
 # define SHARP_HEXA_UP		0x01
@@ -42,30 +39,31 @@
 
 typedef struct	s_specify
 {
-	t_bool	sharp;
-	t_bool	positive_sign;
-	t_bool	negative_sign;
-	t_bool	space;
-	t_bool	zero_pad;
-	t_bool	lenght_l;
-	t_bool	lenght_ll;
-	t_bool	lenght_h;
-	t_bool	lenght_hh;
-	t_bool	lenght_j;
-	t_bool	lenght_z;
-	t_bool	dot;
-	int		dot_value;
-	int		field_width;
-	int		base;
-	int		caps;
-	void	(*fct_call)();
-	char	type;
-	char	fault;
-	int		nb_len;
-	t_bool	sign;
-	int		n_field;
-	int		n_dot;
-	int		sharp_mode;
+	t_bool				sharp;
+	t_bool				positive_sign;
+	t_bool				negative_sign;
+	t_bool				space;
+	t_bool				zero_pad;
+	t_bool				lenght_l;
+	t_bool				lenght_ll;
+	t_bool				lenght_h;
+	t_bool				lenght_hh;
+	t_bool				lenght_j;
+	t_bool				lenght_z;
+	t_bool				dot;
+	int					dot_value;
+	int					field_width;
+	int					base;
+	int					caps;
+	void				(*fct_call)();
+	char				type;
+	char				fault;
+	int					nb_len;
+	t_bool				sign;
+	int					n_field;
+	int					n_dot;
+	int					sharp_mode;
+	unsigned long long	n;
 }				t_specify;
 
 typedef struct	s_data

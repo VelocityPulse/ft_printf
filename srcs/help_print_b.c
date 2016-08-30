@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 17:47:02 by                   #+#    #+#             */
-/*   Updated: 2016/08/30 17:47:28 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 19:26:06 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,14 @@ static int		put_sharp_specify(t_specify *spec)
 	else if (spec->sharp_mode == SHARP_HEXA_LO)
 		return (write(1, "0x", 2));
 	else if (spec->sharp_mode == SHARP_OCTAL)
+	{
+		if (spec->n != 0)
+			return (write(1, "0", 1));
+		if (!(spec->dot == true && spec->dot_value == 0 && spec->n == 0))
+			return (_ERROR_);
 		return (write(1, "0", 1));
+
+	}
 	return (_ERROR_);
 }
 

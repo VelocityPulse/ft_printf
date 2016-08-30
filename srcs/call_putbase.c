@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 18:14:24 by                   #+#    #+#             */
-/*   Updated: 2016/08/30 17:53:23 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 19:22:22 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,15 @@ void			call_putbase(t_data *data)
 
 	spec = &data->spec;
 	select_cast(data, spec, &n);
+	spec->n = n;
 	str = ft_itoa_base_ll(n, spec->base);
 	if (spec->caps == LO_CASE)
 		ft_lowerstr(str);
-	spec->sharp_mode = sharp_specify(spec, n);
 	spec->nb_len = ft_strlen(str);
-	data->ret += spec->nb_len;
+	spec->sharp_mode = sharp_specify(spec, n);
 	before_printing_b(data, spec);
-	if (data->spec.dot == true && data->spec.dot_value == 0 && n == 0)
-		data->ret--;
-	else
-		ft_putstr(str);
+	if (!(spec->dot == true && spec->dot_value == 0 && n == 0))
+		data->ret += write(1, str, spec->nb_len);
 	after_printing_d(data, spec);
 	ft_memdel((void **)&str);
 }

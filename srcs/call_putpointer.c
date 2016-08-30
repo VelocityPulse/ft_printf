@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 19:27:12 by                   #+#    #+#             */
-/*   Updated: 2016/08/30 16:50:04 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 18:19:23 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,9 @@ void			call_putpointer(t_data *data)
 	str = ft_itoa_base_ll(n, 16);
 	ft_lowerstr(str);
 	data->spec.nb_len = ft_strlen(str);
-	data->ret += data->spec.nb_len;
 	before_printing_p(data, &data->spec);
-	if (data->spec.dot == true && data->spec.dot_value == 0 && n == 0)
-		data->ret--;
-	else
-		ft_putstr(str);
+	if (!(data->spec.dot == true && data->spec.dot_value == 0 && n == 0))
+		data->ret += write(1, str, data->spec.nb_len);
 	after_printing_d(data, &data->spec);
 	ft_memdel((void **)&str);
 }

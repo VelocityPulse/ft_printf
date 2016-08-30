@@ -6,11 +6,21 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 19:09:31 by                   #+#    #+#             */
-/*   Updated: 2016/08/22 23:47:44 by                  ###   ########.fr       */
+/*   Updated: 2016/08/30 19:32:01 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static void		select_cast(t_data *d, t_specify *spec, unsigned long long *n)
+{
+	if (spec->lenght_ll == true)
+		*n = va_arg_ll(d->ap);
+	else if (spec->lenght_z == true)
+		*n = va_arg_z(d->ap);
+	else
+		*n = va_arg(*d->ap, unsigned long long);
+}
 
 void	call_putbase_l(t_data *data)
 {
@@ -19,17 +29,17 @@ void	call_putbase_l(t_data *data)
 	char				*str;
 
 	spec = &data->spec;
-	if (spec->lenght_ll == true)
-		n = va_arg_ll(data->ap);
-	else if (spec->lenght_z == true)
-		n = va_arg_z(data->ap);
-	else
-		n = va_arg(*data->ap, unsigned long long);
+	select_cast(data, spec, &n);
+	spec->n = n;
 	str = ft_itoa_base_ll(n, spec->base);
 	if (spec->caps == LO_CASE)
 		ft_lowerstr(str);
-	data->ret += ft_strlen(str);
-	ft_putstr(str);
+	spec->nb_len = ft_strlen(str);
+	spec->sharp_mode = sharp_specify(spec, n);
+	before_printing_b(data, spec);
+	if (!(spec->dot == true && spec->dot_value == 0 && n == 0))
+		data->ret += write(1, str, spec->nb_len);
+	after_printing_d(data, spec);
 	ft_memdel((void **)&str);
 }
 
