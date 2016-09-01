@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 18:14:24 by                   #+#    #+#             */
-/*   Updated: 2016/08/30 19:22:22 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 19:36:19 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void			call_putbase(t_data *data)
 	before_printing_b(data, spec);
 	if (!(spec->dot == true && spec->dot_value == 0 && n == 0))
 		data->ret += write(1, str, spec->nb_len);
+	else if (spec->field_width > 0)
+		data->ret += write(1, " ", 1);
 	after_printing_d(data, spec);
 	ft_memdel((void **)&str);
 }
