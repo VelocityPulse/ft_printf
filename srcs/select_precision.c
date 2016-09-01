@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/26 23:22:23 by                   #+#    #+#             */
-/*   Updated: 2016/09/01 19:07:02 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 19:16:43 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		help_dot(t_data *d, t_specify *spec, int index1, int *i)
 	*i += 1 - index1;
 	if (value < 0)
 	{
-		spec->negative_sign = true;
+		spec->dot = false;
 		spec->dot_value = 0;
 		return ;
 	}
