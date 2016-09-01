@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 17:47:02 by                   #+#    #+#             */
-/*   Updated: 2016/09/01 18:14:17 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 19:26:35 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ void		before_printing_b(t_data *data, t_specify *spec)
 
 	pad_field = ' ';
 	calculate_fields(spec, spec->nb_len, &spec->n_dot, &spec->n_field);
-	spec->n_field -= spec->sharp;
+	if (spec->sharp_mode == SHARP_HEXA_UP || spec->sharp_mode == SHARP_HEXA_LO)
+		spec->n_field -= 2;
+	else if (spec->sharp_mode == SHARP_OCTAL)
+		spec->n_field -= 1;
 	if (spec->negative_sign == false)
 	{
 		if (spec->dot == false && spec->zero_pad == true)
