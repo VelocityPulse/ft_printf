@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wlen.c                                          :+:      :+:    :+:   */
+/*   ft_strnwlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/29 15:03:54 by                   #+#    #+#             */
-/*   Updated: 2016/08/29 17:42:21 by                  ###   ########.fr       */
+/*   Created: 2016/09/01 16:44:16 by                   #+#    #+#             */
+/*   Updated: 2016/09/01 17:48:29 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_wlen(int *str)
-{
-	int		i;
-	int		len;
+#include "libft.h"
 
+int		ft_strnwlen(int *str, int len)
+{
+	int		ret;
+	int		i;
+	int		last;
+
+	ret = 0;
 	i = -1;
-	len = 0;
-	while (str[++i])
+	while (ret < len && str[++i])
 	{
-		if (str[i] <= 0x7F)
-			len++;
-		else if (str[i] <= 0x7FF)
-			len += 2;
-		else if (str[i] <= 0xFFFF)
-			len += 3;
-		else if (str[i] <= 0x10FFFF)
-			len += 4;
+		last = ft_charwlen(str[i]);
+		ret += last;
+		if (ret == len)
+			return (len);
 	}
-	return (len);
+	if (!str[i])
+		return (ret);
+	return (len - (4 - last));
 }
+
+/*
+** this function return n valid character of the unicode string in len size
+*/
