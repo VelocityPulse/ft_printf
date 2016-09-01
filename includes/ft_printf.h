@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/09/01 18:00:40 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 18:31:03 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ typedef struct	s_data
 }				t_data;
 
 int				ft_printf(const char *format, ...);
-int				process_spec(t_specify *spec, char *format);
-int				select_precision(t_specify *spec, char *format, int *i);
+int				process_spec(t_data *data, t_specify *spec, char *format);
+int				select_precision(t_data *data, char *format, int *i);
 int				select_lenght(t_specify *spec, char *format, int *i);
 int				select_flags(t_specify *spec, char type);
 int				select_conversion(t_specify *spec, char type);

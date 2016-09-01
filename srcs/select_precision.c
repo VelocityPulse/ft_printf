@@ -6,50 +6,79 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/26 23:22:23 by                   #+#    #+#             */
-/*   Updated: 2016/08/27 03:44:11 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 19:07:02 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void		select_dot(t_specify *spec, char *format, int *i)
+static void		help_dot(t_data *d, t_specify *spec, int index1, int *i)
+{
+	int		value;
+
+	value = va_arg(*d->ap, int);
+	*i += 1 - index1;
+	if (value < 0)
+	{
+		spec->negative_sign = true;
+		spec->dot_value = 0;
+		return ;
+	}
+	spec->dot_value = value;
+}
+
+static void		select_dot(t_data *d, t_specify *spec, char *format, int *i)
 {
 	int		index1;
 
 	index1 = 0;
 	spec->dot = true;
 	if (format[index1] == '0')
-	{
-		index1++;
-		*i += 1;
-	}
+		*i += ++index1;
 	if (ft_isdigit(format[index1]))
 	{
 		spec->dot_value = ft_atoi(&format[index1]);
 		*i += ft_nblen(spec->dot_value) - index1;
 		return ;
 	}
+	else if (format[index1] == '*')
+	{
+		help_dot(d, spec, index1, i);
+		return ;
+	}
 	spec->dot_value = 0;
 }
 
-static void		select_field_width(t_specify *spec, char *format, int *i)
+static void		select_field_width(t_data *d, t_specify *spec, char *f, int *i)
 {
-	if (*format == '0')
+	if (*f == '0')
 		spec->zero_pad = true;
-	else if (*format >= '1' && *format <= '9')
+	else if (*f >= '1' && *f <= '9')
 	{
-		spec->field_width = ft_atoi(format);
+		spec->field_width = ft_atoi(f);
 		if (spec->field_width > 9)
 			*i += ft_nblen(spec->field_width) - 1;
 	}
+	else if (*f == '*')
+	{
+		spec->field_width = va_arg(*d->ap, int);
+		if (spec->field_width < 0)
+		{
+			spec->field_width = -spec->field_width;
+			spec->negative_sign = true;
+		}
+	}
 }
 
-int				select_precision(t_specify *spec, char *format, int *i)
+int				select_precision(t_data *data, char *format, int *i)
 {
+	t_specify	*spec;
+
+	spec = &data->spec;
 	if (*format == '.' && format[1] != 0)
-		select_dot(spec, &format[1], i);
-	else if (ft_isdigit(*format))
-		select_field_width(spec, format, i);
+		select_dot(data, spec, &format[1], i);
+	else if (ft_isdigit(*format) || *format == '*')
+		select_field_width(data, spec, format, i);
 	else
 		return (_ERROR_);
 	return (_SUCCESS_);

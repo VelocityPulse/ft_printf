@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/30 19:30:33 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 18:31:16 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,6 @@ static void		init_specify(t_specify *spec)
 	spec->n = 0;
 }
 
-static int		print_field(t_specify *spec)
-{
-	char	pad_field;
-	int		ret;
-
-	ret = 0;
-	if (spec->negative_sign == false)
-	{
-		pad_field = ' ';
-		if (spec->zero_pad == true)
-			pad_field = '0';
-		while (--spec->field_width > 0)
-			ret += write(1, &pad_field, 1);
-	}
-	return (ret);
-}
-
 static int		parse_format(t_data *data, int *index)
 {
 	int		i_temp;
@@ -73,13 +56,14 @@ static int		parse_format(t_data *data, int *index)
 	if (data->format[*index + 1] == 0)
 		return (_FAULT_);
 	init_specify(&data->spec);
-	i_temp += process_spec(&data->spec, &data->format[*index + 1]);
+	i_temp += process_spec(data, &data->spec, &data->format[*index + 1]);
 	if (data->spec.fct_call)
 		data->spec.fct_call(data);
 	if (data->spec.fault)
 	{
-		data->ret += print_field(&data->spec);
+		before_printing_c(data, &data->spec);
 		data->ret += write(1, &data->spec.fault, 1);
+		after_printing_c(data, &data->spec);
 	}
 	*index += i_temp;
 	return (_SUCCESS_);

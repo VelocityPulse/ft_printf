@@ -6,13 +6,13 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/25 19:39:38 by                   #+#    #+#             */
-/*   Updated: 2016/08/27 17:49:32 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 18:32:21 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		process_spec(t_specify *spec, char *format)
+int		process_spec(t_data *data, t_specify *spec, char *format)
 {
 	int		i;
 
@@ -23,7 +23,7 @@ int		process_spec(t_specify *spec, char *format)
 		{
 			if (!select_flags(spec, format[i]))
 			{
-				if (!select_precision(spec, &format[i], &i))
+				if (!select_precision(data, &format[i], &i))
 				{
 					spec->fault = format[i];
 					return (i);
