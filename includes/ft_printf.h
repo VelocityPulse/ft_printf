@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/08/30 19:22:05 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 18:00:40 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,9 @@ void			help_putnbr(t_data *data, long long n);
 
 void			before_printing_s(t_data *data, t_specify *spec);
 void			after_printing_s(t_data *data, t_specify *spec);
+
+void			before_printing_c(t_data *data, t_specify *spec);
+void			after_printing_c(t_data *data, t_specify *spec);
 
 void			before_printing_b(t_data *data, t_specify *spec);
 
