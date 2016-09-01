@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/27 19:42:52 by                   #+#    #+#             */
-/*   Updated: 2016/08/28 17:20:37 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 19:48:44 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,12 @@ void			help_putnbr(t_data *data, long long n)
 	}
 	else
 	{
-		if (data->spec.dot == true && data->spec.dot_value == 0 && n == 0)
-			data->ret--;
-		else
+		if (!(data->spec.dot == true && data->spec.dot_value == 0 && n == 0))
 			ft_putnbr_ll(ft_absll(n));
+		else if (data->spec.field_width > 0)
+			write(1, " ", 1);
+		else
+			data->ret--;
 	}
 }
 
