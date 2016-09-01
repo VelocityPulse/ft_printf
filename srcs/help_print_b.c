@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 17:47:02 by                   #+#    #+#             */
-/*   Updated: 2016/08/30 19:26:06 by                  ###   ########.fr       */
+/*   Updated: 2016/09/01 18:14:17 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ static int		put_sharp_specify(t_specify *spec)
 		return (write(1, "0x", 2));
 	else if (spec->sharp_mode == SHARP_OCTAL)
 	{
-		if (spec->n != 0)
+		if (spec->n != 0 && spec->dot_value <= spec->nb_len)
 			return (write(1, "0", 1));
 		if (!(spec->dot == true && spec->dot_value == 0 && spec->n == 0))
 			return (_ERROR_);
 		return (write(1, "0", 1));
-
 	}
 	return (_ERROR_);
 }
@@ -38,7 +37,7 @@ void		before_printing_b(t_data *data, t_specify *spec)
 
 	pad_field = ' ';
 	calculate_fields(spec, spec->nb_len, &spec->n_dot, &spec->n_field);
-	data->spec.n_field -= spec->sharp_mode;
+	spec->n_field -= spec->sharp;
 	if (spec->negative_sign == false)
 	{
 		if (spec->dot == false && spec->zero_pad == true)
