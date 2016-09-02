@@ -6,7 +6,7 @@
 /*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 19:27:12 by                   #+#    #+#             */
-/*   Updated: 2016/08/30 18:19:23 by                  ###   ########.fr       */
+/*   Updated: 2016/09/02 17:45:36 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void		before_printing_p(t_data *data, t_specify *spec)
 {
 	char	pad_field;
-	
+
 	pad_field = ' ';
 	calculate_fields(spec, spec->nb_len, &spec->n_dot, &spec->n_field);
 	data->spec.n_field -= 2;

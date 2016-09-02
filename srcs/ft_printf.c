@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:52 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/09/01 18:31:16 by                  ###   ########.fr       */
+/*   Updated: 2016/09/02 16:52:03 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ int				ft_printf(const char *format, ...)
 	int			index;
 	t_data		data;
 
-	index = -1;
+	index = 0;
 	va_start(ap, format);
 	init_data(&data, &ap, (char *)format);
-	while (format[++index])
+	while (format[index])
 	{
 		if (format[index] == '%')
 			parse_format(&data, &index);
@@ -87,6 +87,9 @@ int				ft_printf(const char *format, ...)
 			ft_putchar(format[index]);
 			data.ret++;
 		}
+		if (!format[index])
+			break ;
+		index++;
 	}
 	va_end(ap);
 	return (data.ret);
