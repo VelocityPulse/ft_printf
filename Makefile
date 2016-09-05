@@ -18,7 +18,6 @@ FILES =				ft_printf.c \
 					select_lenght.c \
 					select_flags.c \
 					select_precision.c \
-					get_lenght.c \
 					call_percent.c \
 					call_putnbr.c \
 					call_putnbr_l.c \
@@ -72,6 +71,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) $(LIBFT)
+	make fclean -C libft/
 
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 13:23:14 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/09/05 13:23:15 by cchameyr         ###   ########.fr       */
+/*   Updated: 2016/09/05 13:40:56 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	call_putnbr_l(t_data *data)
 
 	spec = &data->spec;
 	if (spec->lenght_z == true)
-		n = va_arg_z(data->ap);
+		n = va_arg(*data->ap, size_t);
 	else if (spec->lenght_ll == true)
-		n = va_arg_ll(data->ap);
+		n = va_arg(*data->ap, long long);
 	else
 		n = va_arg(*data->ap, long);
 	spec->nb_len += ft_nblen_ll(n) - (n < 0 ? 1 : 0);

@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 13:22:29 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/09/05 13:26:17 by cchameyr         ###   ########.fr       */
+/*   Updated: 2016/09/05 13:43:57 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void		select_cast(t_data *d, t_specify *spec, unsigned long long *n)
 {
 	if (spec->lenght_ll == true)
-		*n = va_arg_ll(d->ap);
+		*n = va_arg(*d->ap, long long);
 	else if (spec->lenght_z == true)
-		*n = va_arg_z(d->ap);
+		*n = va_arg(*d->ap, size_t);
 	else
 		*n = va_arg(*d->ap, unsigned long long);
 }

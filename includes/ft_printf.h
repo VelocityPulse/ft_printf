@@ -6,7 +6,7 @@
 /*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/10 14:03:30 by cchameyr          #+#    #+#             */
-/*   Updated: 2016/09/01 18:31:03 by                  ###   ########.fr       */
+/*   Updated: 2016/09/05 13:49:24 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,6 @@ int				select_flags(t_specify *spec, char type);
 int				select_conversion(t_specify *spec, char type);
 
 int				sharp_specify(t_specify *spec, unsigned long long n);
-
-long long		va_arg_l(va_list *ap);
-long long		va_arg_z(va_list *ap);
-long long		va_arg_ll(va_list *ap);
-long long		va_arg_hh(va_list *ap);
-long long		va_arg_h(va_list *ap);
 
 void			call_percent(t_data *data);
 void			call_putnbr(t_data *data);
