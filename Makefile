@@ -35,7 +35,6 @@ FILES =				ft_printf.c \
 					help_print_b.c \
 					help_print_c.c
 
-
 SRC =				$(addprefix srcs/, $(FILES))
 
 OBJS =				$(FILES:.c=.o)
@@ -71,8 +70,6 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) $(LIBFT)
-	make fclean -C libft/
-
 
 re: fclean all
 
