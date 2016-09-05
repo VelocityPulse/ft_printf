@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   call_putnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/16 18:04:16 by                   #+#    #+#             */
-/*   Updated: 2016/09/02 16:54:08 by                  ###   ########.fr       */
+/*   Created: 2016/09/05 13:22:41 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/09/05 13:27:31 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void			call_putnbr(t_data *data)
 	t_specify	*spec;
 
 	spec = &data->spec;
-
 	if (spec->lenght_z == true)
 		n = va_arg_z(data->ap);
 	else if (spec->lenght_ll == true)

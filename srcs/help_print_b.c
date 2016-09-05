@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_print_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/30 17:47:02 by                   #+#    #+#             */
-/*   Updated: 2016/09/01 19:36:57 by                  ###   ########.fr       */
+/*   Created: 2016/09/05 13:30:41 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/09/05 13:30:42 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int		put_sharp_specify(t_specify *spec)
 	return (_ERROR_);
 }
 
-void		before_printing_b(t_data *data, t_specify *spec)
+void			before_printing_b(t_data *data, t_specify *spec)
 {
 	char	pad_field;
 

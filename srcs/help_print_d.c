@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_print_d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/27 19:42:52 by                   #+#    #+#             */
-/*   Updated: 2016/09/01 19:48:44 by                  ###   ########.fr       */
+/*   Created: 2016/09/05 13:24:49 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/09/05 13:29:40 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		put_sign(t_data *data, t_specify *spec, long long n)
 	return (_SUCCESS_);
 }
 
-void		before_printing_d(t_data *data, t_specify *spec, long long n)
+void			before_printing_d(t_data *data, t_specify *spec, long long n)
 {
 	char	pad_field;
 	int		sign_printed;
@@ -52,7 +52,7 @@ void		before_printing_d(t_data *data, t_specify *spec, long long n)
 		data->ret += write(1, "0", 1);
 }
 
-void		after_printing_d(t_data *data, t_specify *spec)
+void			after_printing_d(t_data *data, t_specify *spec)
 {
 	if (spec->negative_sign == true)
 	{
@@ -78,4 +78,3 @@ void			help_putnbr(t_data *data, long long n)
 			data->ret--;
 	}
 }
-

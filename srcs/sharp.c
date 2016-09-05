@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sharp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/26 00:29:59 by                   #+#    #+#             */
-/*   Updated: 2016/08/30 18:55:48 by                  ###   ########.fr       */
+/*   Created: 2016/09/05 13:22:14 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/09/05 13:26:00 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		sharp_specify(t_specify *spec, unsigned long long n)
 				return (SHARP_HEXA_LO);
 		}
 		else if (spec->base == OCTAL_BASE)
-				return (SHARP_OCTAL);
+			return (SHARP_OCTAL);
 	}
 	return (SHARP_NONE);
 }

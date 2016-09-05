@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_print_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/29 14:45:08 by                   #+#    #+#             */
-/*   Updated: 2016/08/29 18:22:37 by                  ###   ########.fr       */
+/*   Created: 2016/09/05 13:24:19 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/09/05 13:30:13 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	before_printing_s(t_data *data, t_specify *spec)
 		pad_field = ' ';
 		if (spec->zero_pad == true)
 			pad_field = '0';
-			while (--spec->n_field >= 0)
-				data->ret += write(1, &pad_field, 1);
+		while (--spec->n_field >= 0)
+			data->ret += write(1, &pad_field, 1);
 	}
 }
 

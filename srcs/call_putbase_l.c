@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   call_putbase_l.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/18 19:09:31 by                   #+#    #+#             */
-/*   Updated: 2016/08/30 19:32:01 by                  ###   ########.fr       */
+/*   Created: 2016/09/05 13:22:29 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/09/05 13:26:17 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		select_cast(t_data *d, t_specify *spec, unsigned long long *n)
 		*n = va_arg(*d->ap, unsigned long long);
 }
 
-void	call_putbase_l(t_data *data)
+void			call_putbase_l(t_data *data)
 {
 	unsigned long long	n;
 	t_specify			*spec;

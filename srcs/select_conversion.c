@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   select_conversion.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: cchameyr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 16:45:18 by                   #+#    #+#             */
-/*   Updated: 2016/09/02 16:41:32 by                  ###   ########.fr       */
+/*   Created: 2016/09/05 13:25:17 by cchameyr          #+#    #+#             */
+/*   Updated: 2016/09/05 13:27:49 by cchameyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int		conversion_c(t_specify *spec, char type)
 	return (_SUCCESS_);
 }
 
-int		select_conversion(t_specify *spec, char type)
+int				select_conversion(t_specify *spec, char type)
 {
 	if (conversion_a(spec, type) ||
 		conversion_b(spec, type) ||
