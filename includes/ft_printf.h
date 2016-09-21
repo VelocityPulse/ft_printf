@@ -18,7 +18,7 @@
 # include "../../libft.h"
 
 # ifndef RETURN_STAT
-#  define RETYRN_STA
+#  define RETURN_STAT
 
 #  define _FAULT_			0x00
 #  define _ERROR_			0x00
